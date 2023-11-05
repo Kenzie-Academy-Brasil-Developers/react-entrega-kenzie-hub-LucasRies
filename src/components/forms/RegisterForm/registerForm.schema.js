@@ -12,7 +12,14 @@ const registerFormSchema = z
             .min(8, "Minímo de 8 caracteres")
             .regex(/[a-z]+/, "É necessario conter letras")
             .regex(/[0-9]+/, "É necessario conter números"),
-        confirmPassword: z.string().min(1, "Confirmação Obrigatória"),
+        confirmPassword: z.string()
+            .min(1, "Confirmação Obrigatória"),
+        bio: z.string()
+            .min(1, "Bio Obrigatória"),
+        contact: z.string()
+            .min(1, "Contato Obrigatório"),
+        course_module: z.string()
+            .min(1, "Modulo do Curso Obrigatório"),
     })
     .refine(({ password, confirmPassword }) => password === confirmPassword, {
         message: "As senhas não correspondem",
