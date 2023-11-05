@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
+import styles from "./style.module.scss"
 
 export default () => {
     return(
-        <header>
-            <h3>Esse é o cabeçalho</h3>
+        <header>                
             <div>
                 <nav>
                     <ul>
