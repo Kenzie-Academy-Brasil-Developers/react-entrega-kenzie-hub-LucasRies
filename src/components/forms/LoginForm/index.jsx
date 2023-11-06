@@ -3,10 +3,10 @@ import Input from "../Input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { loginFormSchema } from "./LoginForm.schema"
-import api from "../../../services"
+import api from "../../../services/api"
 import { useState } from "react"
 
-export default () => {
+export default ({ setUser }) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(loginFormSchema)
@@ -21,6 +21,7 @@ export default () => {
             setLoading(true)
             const { data } = await api.post("/sessions", payLoad)
             localStorage.setItem("@TOKEN", data.token)
+            setUser(data.user)
             navigate("/dashbord")
         } catch (error) {
             console.log(error)
@@ -42,10 +43,7 @@ export default () => {
             <Input label="Sua Senha: " type="password" id="senha" error={errors.password} {...register("password")} />
             <div>
                 <button className="btn pink" type="submit" disabled={loading}>Entrar</button>
-            </div>
-            <div>
-                <Link to="/register">Cadastre-se</Link>
-            </div>
+            </div>            
         </form>
     )
 }

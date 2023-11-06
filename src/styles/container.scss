@@ -4,9 +4,11 @@
     padding: 1rem;
     background-color: var(--color-gray-3);
     width: 85%;
+    border-radius: 3px;
 
 
     &.sm{
         max-width: 470px;
+        margin-bottom: 15px;
     }
 }

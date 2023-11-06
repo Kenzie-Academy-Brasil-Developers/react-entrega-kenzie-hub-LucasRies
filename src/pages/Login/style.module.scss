@@ -1,0 +1,42 @@
+.box{
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 2.3986rem;
+
+    border-radius: 4px;
+    background: var(--color-gray-1);
+    margin-top: 15px;    
+
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 0.8022rem;
+    line-height: 1.3233rem;
+    color: #FFF;
+
+}
+
+.p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin-top: 15px;
+
+}

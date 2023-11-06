@@ -2,10 +2,10 @@ import Footer from "../Footer"
 import Header from "../Header"
 
 
-export default ( { children }  ) => {
+export default ( { children, user, userLogout }  ) => {
     return (
         <>
-        <Header/>
+        <Header user={user} userLogout={userLogout}/>
             {children}
         <Footer/>
         </>

@@ -15,11 +15,36 @@
 
     &.one {
         border: 1.218px solid var(--color-primary, #FF577F);
-        background: var(--color-primary, #FF577F);        
+        background: var(--color-primary, #FF577F);
     }
 
     &.pink {
         border: 1.218px solid var(--color-primary, #FF577F);
         background: var(--color-primary, #FF577F);
     }
+
 }
+
+.out {
+    display: inline-flex;
+    height: 32px;
+    padding: 0px 16.243px;
+    justify-content: center;
+    align-items: center;
+    gap: 10.152px;
+    flex-shrink: 0;
+
+    border: 0px solid black;
+
+    border-radius: 4px;
+    background: var(--color-gray-3);
+
+    color: var(--color-gray-0);
+    text-align: center;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28.425px;    
+}
+
