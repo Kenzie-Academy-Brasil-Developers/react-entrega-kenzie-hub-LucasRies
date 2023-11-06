@@ -6,7 +6,7 @@ export default () => {
         <main className={pageStyles.pageBox}>
             <div className="container sm">
                 <div className="">
-                    <h1 className="">LOGIN</h1>
+                    <h1 className="title one">Login</h1>
                     <LoginForm />
                 </div>
             </div>

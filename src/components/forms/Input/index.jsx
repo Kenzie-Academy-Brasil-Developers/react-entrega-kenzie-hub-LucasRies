@@ -6,7 +6,7 @@ export default forwardRef(({ error, label, id, ...rest }, ref) => {
     return (
         <div className={styles.inputBox}>
             <div>
-                <label htmlFor={id}>{label}</label>
+                <label className="title two" htmlFor={id}>{label}</label>
             </div>
             <div>
                 <input ref={ref} {...rest} />

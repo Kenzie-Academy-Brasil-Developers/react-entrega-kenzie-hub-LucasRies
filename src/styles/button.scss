@@ -1,0 +1,25 @@
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 2.3986rem;
+    border-radius: 4px;
+
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 0.8022rem;
+    line-height: 1.3233rem;
+    color: #FFF;
+
+
+    &.one {
+        border: 1.218px solid var(--color-primary, #FF577F);
+        background: var(--color-primary, #FF577F);        
+    }
+
+    &.pink {
+        border: 1.218px solid var(--color-primary, #FF577F);
+        background: var(--color-primary, #FF577F);
+    }
+}

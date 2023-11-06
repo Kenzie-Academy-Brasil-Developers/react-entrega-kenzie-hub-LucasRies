@@ -2,6 +2,9 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
+    background-color: var(--color-gray-3);
+    width: 85%;
+
 
     &.sm{
         max-width: 470px;
