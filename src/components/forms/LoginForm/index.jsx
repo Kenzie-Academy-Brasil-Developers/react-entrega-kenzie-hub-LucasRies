@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import Input from "../Input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { loginFormSchema } from "./LoginForm.schema"
+import { loginFormSchema } from "./loginForm.schema"
 import api from "../../../services/api"
 import { useState } from "react"
 
