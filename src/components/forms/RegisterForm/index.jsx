@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form"
 import Input from "../Input"
+import Select from "../Select"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { registerFormSchema } from "./registerForm.schema"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import styles from "./style.module.scss"
 import api from "../../../services/api"
 import { useState } from "react"
@@ -75,26 +76,13 @@ export default () => {
                 type="text"
                 {...register("contact")}
                 error={errors.contact}
-            />
-            <Input
+            />            
+            <Select
                 label="Selecionar Modulo"
-                type="text"
                 {...register("course_module")}
                 error={errors.course_module}
             />
             <div>
-                <div>
-                    <label className="title two" htmlFor="id">Selecionar Modulo</label>
-                </div>
-                {/*<div>
-                    <select>
-                        <option value=""> - </option>
-                        <option value="Primeiro módulo (Introdução ao Frontend)">Primeiro módulo (Introdução ao Frontend)</option>
-                        <option value="Segundo módulo (Frontend Avançado)">Segundo módulo (Frontend Avançado)</option>
-                        <option value="Terceiro módulo (Introdução ao Backend)">Terceiro módulo (Introdução ao Backend)</option>
-                        <option value="Quarto módulo (Backend Avançado)">Quarto módulo (Backend Avançado)</option>
-                    </select>
-                </div>*/}
                 <button className="btn one" type="submit" disabled={loading}>Cadastrar</button>
             </div>
         </form>
