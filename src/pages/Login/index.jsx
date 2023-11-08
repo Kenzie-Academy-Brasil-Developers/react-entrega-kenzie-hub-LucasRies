@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 
 
 
-export default ({ setUser }) => {
+export default () => {
     return (
         <main className={pageStyles.pageBox}>
             <div className={styles.header}>
@@ -17,7 +17,7 @@ export default ({ setUser }) => {
                     <div className={styles.box}>
                         <h1 className="title one">Login</h1>
                     </div>
-                    <LoginForm setUser={setUser} />
+                    <LoginForm />
                     <div className={styles.p}>
                         <p className="title p">Ainda não possui uma conta?</p>
                     </div>

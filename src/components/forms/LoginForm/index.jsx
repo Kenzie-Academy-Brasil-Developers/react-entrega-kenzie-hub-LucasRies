@@ -1,40 +1,23 @@
-import { Link, useNavigate } from "react-router-dom"
 import Input from "../Input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { loginFormSchema } from "./loginForm.schema"
-import api from "../../../services/api"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { UserContext } from "../../../providers/UserContext"
 
-export default ({ setUser }) => {
+export default () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(loginFormSchema)
     })
 
-    const [loading, setLoading] = useState(false)
+    const { userLogin } = useContext(UserContext)
 
-    const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)    
 
-    const userLogin = async (payLoad) => {
-        try {
-            setLoading(true)
-            const { data } = await api.post("/sessions", payLoad)
-            localStorage.setItem("@TOKEN", data.token)
-            setUser(data.user)
-            navigate("/dashbord")
-        } catch (error) {
-            console.log(error)
-            if (error.response?.data.message === "Incorrect email / password combination") {
-                alert("E-mail ou Senha Incorretos")
-            }
-        } finally {
-            setLoading(false)
-        }
-    }
 
     const submit = (payLoad) => {
-        userLogin(payLoad)
+        userLogin(payLoad, setLoading)
     }
 
     return (

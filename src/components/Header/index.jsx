@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom"
 import styles from "./style.module.scss"
 import hub from "../../assets/hub.svg"
+import { useContext } from "react"
+import { UserContext } from "../../providers/UserContext"
 
-export default ({ userLogout }) => {
+export default () => {
+    const { userLogout } = useContext(UserContext)
+
     return (
         <header>
             <div className={styles.container}>

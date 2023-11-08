@@ -3,41 +3,24 @@ import Input from "../Input"
 import Select from "../Select"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { registerFormSchema } from "./registerForm.schema"
-import { useNavigate } from "react-router-dom"
 import styles from "./style.module.scss"
-import api from "../../../services/api"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { UserContext } from "../../../providers/UserContext"
 
 
 export default () => {
+    const { userRegister } = useContext(UserContext)
+
+    const [loading, setLoading] = useState(false)  
+    
     const { register, handleSubmit, formState: { errors } } =
         useForm({
             resolver: zodResolver(registerFormSchema),
         })
 
     const submit = (payLoad) => {
-        userRegister(payLoad)
-    }
-
-    const [loading, setLoading] = useState(false)
-
-    const navigate = useNavigate()
-
-    const userRegister = async (payLoad) => {
-        try {
-            setLoading(true)
-            await api.post("/users", payLoad)
-            navigate("/")
-            alert("Cadastro feito com sucesso")
-        } catch (error) {
-            console.log(error)
-            if (error.response?.data.message === "Email already exists") {
-                alert("Usuario ja cadastrado")
-            }
-        } finally {
-            setLoading(false)
-        }
-    }
+        userRegister(payLoad, setLoading)
+    }     
 
     return (
         <form className={styles.container} onSubmit={handleSubmit(submit)}>

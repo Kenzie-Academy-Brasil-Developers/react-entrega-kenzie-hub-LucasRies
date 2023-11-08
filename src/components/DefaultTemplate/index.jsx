@@ -1,10 +1,10 @@
 import Header from "../Header"
 
 
-export default ( { children, user, userLogout }  ) => {
+export default ( { children }  ) => {
     return (
         <>
-        <Header user={user} userLogout={userLogout}/>
+        <Header />
             {children}        
         </>
     )

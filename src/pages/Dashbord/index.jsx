@@ -1,11 +1,14 @@
+import { useContext } from "react"
 import { DefaultTemplate } from "../../components"
 import styles from "./style.module.scss"
+import { UserContext } from "../../providers/UserContext"
 
 
-export default ({ user, userLogout }) => {
-    console.log(user)
+export default () => {    
+    const { user } = useContext(UserContext)
+
     return (
-        <DefaultTemplate user={user} userLogout={userLogout} >
+        <DefaultTemplate  >
             <main className={styles.dashContainer}>
                 <div>
                     <div className={styles.dashBox} >

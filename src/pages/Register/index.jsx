@@ -4,8 +4,6 @@ import pageStyles from "../../styles/modules/pageBox.module.scss"
 import hub from "../../assets/hub.svg"
 import styles from "./style.module.scss"
 
-
-
 export default () => {
     return (
         <main className={pageStyles.pageBox}>
