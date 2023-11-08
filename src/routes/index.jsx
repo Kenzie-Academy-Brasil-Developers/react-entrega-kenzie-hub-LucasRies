@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { Dashbord, ErrorPage, Login, Register } from "../pages"
-import { PrivateRoutes } from "./privateRoutes"
+import { PrivateRoutes } from "./PrivateRoutes"
 import { PublicRoutes } from "./PublicRoutes"
 
 
