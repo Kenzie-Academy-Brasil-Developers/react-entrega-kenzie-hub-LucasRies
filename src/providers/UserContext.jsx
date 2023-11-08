@@ -1,11 +1,35 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { api } from "../services/api.js"
+
 
 const UserContext = createContext({})
 
 const UserProvider = ({ children }) => {
-
     const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(false)
+
+    useEffect(() => {
+        const token = localStorage.getItem("@TOKEN")
+
+        const getUser = async () => {
+            try {
+                setLoading(true)
+                const { data } = await api.get(`/profile`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+                setUser(data)
+                navigate("/dashbord")
+            } catch (error) {
+                console.log(error)
+            } finally {
+                setLoading(false)
+            }
+        }
+        getUser()
+    }, [])
 
     const navigate = useNavigate()
 
@@ -14,7 +38,7 @@ const UserProvider = ({ children }) => {
         navigate("/")
         localStorage.removeItem("@TOKEN")
     }
-    
+
     const userLogin = async (formData, setLoading) => {
         try {
             setLoading(true)
@@ -48,9 +72,12 @@ const UserProvider = ({ children }) => {
         }
     }
 
-
     return (
-        <UserContext.Provider value={{ user, userLogin, userLogout, userRegister  }}>{children}</UserContext.Provider>
+        <UserContext.Provider value={{ 
+            loading, user, userLogin, userLogout, userRegister 
+            }}>
+            {children}
+        </UserContext.Provider>
     )
 }
 

@@ -1,11 +1,15 @@
+import { useContext } from 'react'
 import Routes from './routes'
 import styles from './styles/index.scss'
+import { UserContext } from './providers/UserContext'
+import { Loading } from './components/Loading'
 
 function App() {
+  const { loading } = useContext(UserContext)
 
   return (
     <>    
-      <Routes />
+      {loading? <Loading/> : <Routes />}
     </>
   )
 }
