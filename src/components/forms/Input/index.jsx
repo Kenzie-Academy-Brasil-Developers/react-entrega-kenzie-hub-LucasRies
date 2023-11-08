@@ -9,7 +9,7 @@ export default forwardRef(({ error, label, id, ...rest }, ref) => {
                 <label className="title two" htmlFor={id}>{label}</label>
             </div>
             <div>
-                <input ref={ref} {...rest} />
+                <input id={id} ref={ref} {...rest} />
                 {error ? <p>{error.message}</p> : null}
             </div>
         </div>

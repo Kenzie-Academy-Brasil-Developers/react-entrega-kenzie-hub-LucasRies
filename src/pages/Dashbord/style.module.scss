@@ -1,16 +1,14 @@
-.dashContainer{
-    display: flex;    
+.dashContainer {
+    display: flex;
     justify-content: center;
     background-color: var(--color-gray-4);
-
     padding: 1.25rem;
-    
     min-height: 100vh;
 }
 
-.dashBox{
-    display: flex; 
+.dashBox {
+    display: flex;
     flex-direction: column;
-    justify-content: center;    
-    height: 100px;    
+    justify-content: center;
+    height: 100px;
 }

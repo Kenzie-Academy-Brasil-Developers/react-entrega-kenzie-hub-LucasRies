@@ -6,7 +6,7 @@
     flex-direction: row;
     align-items: center;
     padding: 20px;
-    
+
     max-width: 470px;
     margin-bottom: 15px;
     margin: 0 auto;
@@ -28,17 +28,16 @@
     color: white;
     font-family: Inter;
     font-size: 9.594px;
-
 }
 
-.box{
+.box {
     height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    h1{
+    h1 {
         margin-bottom: 15px;
     }
 }

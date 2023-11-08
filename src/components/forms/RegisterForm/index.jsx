@@ -9,10 +9,10 @@ import { UserContext } from "../../../providers/UserContext"
 
 
 export default () => {
-    const { userRegister } = useContext(UserContext)
 
-    const [loading, setLoading] = useState(false)  
-    
+    const { userRegister } = useContext(UserContext)
+    const [loading, setLoading] = useState(false)
+
     const { register, handleSubmit, formState: { errors } } =
         useForm({
             resolver: zodResolver(registerFormSchema),
@@ -20,48 +20,55 @@ export default () => {
 
     const submit = (payLoad) => {
         userRegister(payLoad, setLoading)
-    }     
+    }
 
     return (
         <form className={styles.container} onSubmit={handleSubmit(submit)}>
-            <Input
+            <Input                               
                 label="Name"
+                id="Name"
                 type="text"
                 {...register("name")}
                 error={errors.name}
             />
-            <Input
+            <Input                
                 label="Seu e-mail"
+                id="Seu e-mail"
                 type="text"
                 {...register("email")}
                 error={errors.email}
             />
-            <Input
+            <Input                
                 label="Crie uma senha"
+                id="Crie uma senha"
                 type="password"
                 {...register("password")}
                 error={errors.password}
             />
-            <Input
+            <Input                
                 label="Confirme sua senha"
+                id="Confirme sua senha"
                 type="password"
                 {...register("confirmPassword")}
                 error={errors.confirmPassword}
             />
-            <Input
+            <Input                
                 label="Bio"
+                id="Bio"
                 type="text"
                 {...register("bio")}
                 error={errors.bio}
             />
-            <Input
+            <Input                
                 label="Contato"
+                id="Contato"
                 type="text"
                 {...register("contact")}
                 error={errors.contact}
-            />            
-            <Select
+            />
+            <Select                
                 label="Selecionar Modulo"
+                id="Selecionar Modulo"                
                 {...register("course_module")}
                 error={errors.course_module}
             />

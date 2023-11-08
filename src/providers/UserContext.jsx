@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api.js"
+import { toast } from "react-toastify";
+
 
 
 const UserContext = createContext({})
@@ -8,7 +10,9 @@ const UserContext = createContext({})
 const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(false)
-
+    const pathname = window.location.pathname
+    
+    
     useEffect(() => {
         const token = localStorage.getItem("@TOKEN")
 
@@ -21,7 +25,7 @@ const UserProvider = ({ children }) => {
                     }
                 })
                 setUser(data)
-                navigate("/dashbord")
+                navigate(pathname)
             } catch (error) {
                 console.log(error)
             } finally {
@@ -37,6 +41,7 @@ const UserProvider = ({ children }) => {
         setUser(null)
         navigate("/")
         localStorage.removeItem("@TOKEN")
+        toast.warn("Saindo...")
     }
 
     const userLogin = async (formData, setLoading) => {
@@ -49,7 +54,7 @@ const UserProvider = ({ children }) => {
         } catch (error) {
             console.log(error)
             if (error.response?.data.message === "Incorrect email / password combination") {
-                alert("E-mail ou Senha Incorretos")
+                toast.error("E-mail ou Senha Incorretos")
             }
         } finally {
             setLoading(false)
@@ -61,11 +66,11 @@ const UserProvider = ({ children }) => {
             setLoading(true)
             await api.post("/users", payLoad)
             navigate("/")
-            alert("Cadastro feito com sucesso")
+            toast.success("Cadastro feito com sucesso")
         } catch (error) {
             console.log(error)
             if (error.response?.data.message === "Email already exists") {
-                alert("Usuario ja cadastrado")
+                toast.error("Usuario ja cadastrado")
             }
         } finally {
             setLoading(false)
@@ -73,9 +78,9 @@ const UserProvider = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{ 
-            loading, user, userLogin, userLogout, userRegister 
-            }}>
+        <UserContext.Provider value={{
+            loading, user, userLogin, userLogout, userRegister
+        }}>
             {children}
         </UserContext.Provider>
     )

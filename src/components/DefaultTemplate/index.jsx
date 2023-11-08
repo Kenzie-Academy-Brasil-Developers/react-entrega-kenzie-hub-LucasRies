@@ -1,11 +1,10 @@
 import Header from "../Header"
 
-
-export default ( { children }  ) => {
+export default ({ children }) => {
     return (
         <>
-        <Header />
-            {children}        
+            <Header />
+            {children}
         </>
     )
 } 

@@ -4,7 +4,7 @@ import styles from "./style.module.scss"
 import { UserContext } from "../../providers/UserContext"
 
 
-export default () => {    
+export default () => {
     const { user } = useContext(UserContext)
 
     return (

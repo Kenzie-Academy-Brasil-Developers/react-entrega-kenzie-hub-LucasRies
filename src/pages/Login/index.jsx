@@ -5,7 +5,6 @@ import hub from "../../assets/hub.svg"
 import { Link } from "react-router-dom"
 
 
-
 export default () => {
     return (
         <main className={pageStyles.pageBox}>
@@ -22,7 +21,6 @@ export default () => {
                         <p className="title p">Ainda não possui uma conta?</p>
                     </div>
                     <Link className={styles.link} to="/register">Cadastre-se</Link>
-
                 </div>
             </div>
         </main>

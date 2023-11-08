@@ -13,7 +13,7 @@ export default () => {
 
     const { userLogin } = useContext(UserContext)
 
-    const [loading, setLoading] = useState(false)    
+    const [loading, setLoading] = useState(false)
 
 
     const submit = (payLoad) => {
@@ -22,11 +22,21 @@ export default () => {
 
     return (
         <form onSubmit={handleSubmit(submit)}>
-            <Input label="Seu E-mail: " type="email" id="email" error={errors.email} {...register("email")} />
-            <Input label="Sua Senha: " type="password" id="senha" error={errors.password} {...register("password")} />
+            <Input
+                label="Seu E-mail: "
+                id="Seu E-mail: "
+                type="email"                
+                error={errors.email}
+                {...register("email")} />
+            <Input
+                label="Sua Senha: "
+                id="Sua Senha: "
+                type="password"
+                error={errors.password}
+                {...register("password")} />
             <div>
                 <button className="btn pink" type="submit" disabled={loading}>Entrar</button>
-            </div>            
+            </div>
         </form>
     )
 }
